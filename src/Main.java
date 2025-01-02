@@ -101,7 +101,7 @@ class FullTimeEmployee extends Employee {
  * Main class for the Employee Management System.
  * Contains functionality for adding employees, viewing details, and admin panel.
  */
-public class EmployeeManagementSystem {
+public class Main {
     private static final Scanner scanner = new Scanner(System.in);
     private static final Map<String, Employee> employees = new HashMap<>(); // Employee data storage
     private static final Map<String, String> credentials = new HashMap<>(); // Login credentials
