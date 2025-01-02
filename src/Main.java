@@ -226,3 +226,23 @@ public class EmployeeManagementSystem {
         }
     }
 
+    /**
+     * Admin login functionality for accessing advanced features.
+     */
+    private static void adminLogin() {
+        System.out.println("\n--- Admin Login ---");
+
+        System.out.print("Enter Admin ID: ");
+        String adminId = scanner.nextLine();
+
+        System.out.print("Enter Admin Password: ");
+        String adminPassword = scanner.nextLine();
+
+        if (ADMIN_ID.equals(adminId) && ADMIN_PASSWORD.equals(adminPassword)) {
+            // Admin dashboard logic here
+            System.out.println("Welcome, Admin! (Features under implementation)");
+        } else {
+            System.out.println("Invalid Admin ID or Password.");
+        }
+    }
+}
