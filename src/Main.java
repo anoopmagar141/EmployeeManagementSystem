@@ -97,3 +97,47 @@ class FullTimeEmployee extends Employee {
     }
 }
 
+/**
+ * Main class for the Employee Management System.
+ * Contains functionality for adding employees, viewing details, and admin panel.
+ */
+public class EmployeeManagementSystem {
+    private static final Scanner scanner = new Scanner(System.in);
+    private static final Map<String, Employee> employees = new HashMap<>(); // Employee data storage
+    private static final Map<String, String> credentials = new HashMap<>(); // Login credentials
+    private static final String ADMIN_ID = "admin"; // Admin login ID
+    private static final String ADMIN_PASSWORD = "admin123"; // Admin password
+
+    public static void main(String[] args) {
+        preloadEmployees(); // Load some initial employees
+
+        while (true) {
+            System.out.println("\n--- Employee Management System ---");
+            System.out.println("1. Add Employee");
+            System.out.println("2. View Employee Details");
+            System.out.println("3. Admin Login");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+
+            switch (choice) {
+                case 1:
+                    addEmployee();
+                    break;
+                case 2:
+                    viewEmployeeDetails();
+                    break;
+                case 3:
+                    adminLogin();
+                    break;
+                case 4:
+                    System.out.println("Exiting... Goodbye!");
+                    return;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
+    }
+
