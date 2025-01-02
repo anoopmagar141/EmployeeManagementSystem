@@ -201,3 +201,28 @@ public class EmployeeManagementSystem {
         System.out.println("Your Employee ID is: " + newEmployee.getEmployeeId());
     }
 
+    /**
+     * View employee details by providing valid login credentials.
+     */
+    private static void viewEmployeeDetails() {
+        System.out.println("\n--- View Employee Details ---");
+
+        System.out.print("Enter Employee ID: ");
+        String id = scanner.nextLine();
+
+        System.out.print("Enter Password: ");
+        String password = scanner.nextLine();
+
+        if (credentials.containsKey(id) && credentials.get(id).equals(password)) {
+            Employee employee = employees.get(id);
+            if (employee != null) {
+                System.out.println("\nEmployee Details:");
+                employee.displayDetails();
+            } else {
+                System.out.println("Employee not found.");
+            }
+        } else {
+            System.out.println("Invalid ID or Password.");
+        }
+    }
+
