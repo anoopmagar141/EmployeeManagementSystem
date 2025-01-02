@@ -1,6 +1,5 @@
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Base class for all employees.
@@ -68,59 +67,5 @@ abstract class Employee {
 
     public String getDepartment() {
         return department;
-    }
-}
-/**
- * FullTimeEmployee class represents permanent employees.
- * Extends the Employee class and defines salary calculation logic.
- */
-class FullTimeEmployee extends Employee {
-
-    // Constructor
-    public FullTimeEmployee(String firstName, String lastName, String middleName, String phoneNumber, String address, String department, String email, String password) {
-        super(firstName, lastName, middleName, phoneNumber, address, department, email, password);
-    }
-
-    // Salary calculation based on department
-    @Override
-    public void calculateSalary() {
-        switch (getDepartment().toLowerCase()) {
-            case "hr":
-                setSalary(150000); // HR salary
-                break;
-            case "it":
-                setSalary(175000); // IT salary
-                break;
-            case "sales":
-                setSalary(125000); // Sales salary
-                break;
-        }
-    }
-}
-import java.util.HashMap;
-import java.util.Map;
-
-public class EmployeeManagementSystem {
-    private static final Map<String, Employee> employees = new HashMap<>();
-    private static final Map<String, String> credentials = new HashMap<>();
-
-    /**
-     * Preload a few employees into the system for testing/demo purposes.
-     */
-    private static void preloadEmployees() {
-        Employee emp1 = new FullTimeEmployee("Yuraj", "Shrestha", "", "9876543210", "Kathmandu", "IT", "yuraj@example.com", "password123");
-        Employee emp2 = new FullTimeEmployee("Ekraj", "Shrestha", "", "9876543211", "Pokhara", "HR", "ekraj@example.com", "password123");
-        Employee emp3 = new FullTimeEmployee("Jenisha", "Karki", "", "9876543212", "Lalitpur", "Sales", "jenisha@example.com", "password123");
-
-        emp1.calculateSalary();
-        emp2.calculateSalary();
-        emp3.calculateSalary();
-
-        employees.put(emp1.getEmployeeId(), emp1);
-        credentials.put(emp1.getEmployeeId(), emp1.getPassword());
-        employees.put(emp2.getEmployeeId(), emp2);
-        credentials.put(emp2.getEmployeeId(), emp2.getPassword());
-        employees.put(emp3.getEmployeeId(), emp3);
-        credentials.put(emp3.getEmployeeId(), emp3.getPassword());
     }
 }
