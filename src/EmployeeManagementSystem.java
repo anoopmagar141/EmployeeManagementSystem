@@ -70,3 +70,30 @@ abstract class Employee {
         return department;
     }
 }
+/**
+ * FullTimeEmployee class represents permanent employees.
+ * Extends the Employee class and defines salary calculation logic.
+ */
+class FullTimeEmployee extends Employee {
+
+    // Constructor
+    public FullTimeEmployee(String firstName, String lastName, String middleName, String phoneNumber, String address, String department, String email, String password) {
+        super(firstName, lastName, middleName, phoneNumber, address, department, email, password);
+    }
+
+    // Salary calculation based on department
+    @Override
+    public void calculateSalary() {
+        switch (getDepartment().toLowerCase()) {
+            case "hr":
+                setSalary(150000); // HR salary
+                break;
+            case "it":
+                setSalary(175000); // IT salary
+                break;
+            case "sales":
+                setSalary(125000); // Sales salary
+                break;
+        }
+    }
+}
