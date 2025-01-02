@@ -141,3 +141,63 @@ public class EmployeeManagementSystem {
         }
     }
 
+    /**
+     * Preload a few employees into the system for testing/demo purposes.
+     */
+    private static void preloadEmployees() {
+        Employee emp1 = new FullTimeEmployee("Yuraj", "Shrestha", "", "9876543210", "Kathmandu", "IT", "yuraj@example.com", "password123");
+        Employee emp2 = new FullTimeEmployee("Ekraj", "Shrestha", "", "9876543211", "Pokhara", "HR", "ekraj@example.com", "password123");
+        Employee emp3 = new FullTimeEmployee("Jenisha", "Karki", "", "9876543212", "Lalitpur", "Sales", "jenisha@example.com", "password123");
+
+        emp1.calculateSalary();
+        emp2.calculateSalary();
+        emp3.calculateSalary();
+
+        employees.put(emp1.getEmployeeId(), emp1);
+        credentials.put(emp1.getEmployeeId(), emp1.getPassword());
+        employees.put(emp2.getEmployeeId(), emp2);
+        credentials.put(emp2.getEmployeeId(), emp2.getPassword());
+        employees.put(emp3.getEmployeeId(), emp3);
+        credentials.put(emp3.getEmployeeId(), emp3.getPassword());
+    }
+
+    /**
+     * Add a new employee to the system.
+     */
+    private static void addEmployee() {
+        System.out.println("\n--- Add Employee ---");
+
+        System.out.print("First Name: ");
+        String firstName = scanner.nextLine();
+
+        System.out.print("Last Name: ");
+        String lastName = scanner.nextLine();
+
+        System.out.print("Middle Name (optional): ");
+        String middleName = scanner.nextLine();
+
+        System.out.print("Phone Number (10 digits): ");
+        String phoneNumber = scanner.nextLine();
+
+        System.out.print("Address: ");
+        String address = scanner.nextLine();
+
+        System.out.print("Department (IT, Sales, HR): ");
+        String department = scanner.nextLine();
+
+        System.out.print("Email: ");
+        String email = scanner.nextLine();
+
+        System.out.print("Password: ");
+        String password = scanner.nextLine();
+
+        Employee newEmployee = new FullTimeEmployee(firstName, lastName, middleName, phoneNumber, address, department, email, password);
+        newEmployee.calculateSalary();
+
+        employees.put(newEmployee.getEmployeeId(), newEmployee);
+        credentials.put(newEmployee.getEmployeeId(), password);
+
+        System.out.println("\nEmployee added successfully!");
+        System.out.println("Your Employee ID is: " + newEmployee.getEmployeeId());
+    }
+
