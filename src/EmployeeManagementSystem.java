@@ -97,3 +97,30 @@ class FullTimeEmployee extends Employee {
         }
     }
 }
+import java.util.HashMap;
+import java.util.Map;
+
+public class EmployeeManagementSystem {
+    private static final Map<String, Employee> employees = new HashMap<>();
+    private static final Map<String, String> credentials = new HashMap<>();
+
+    /**
+     * Preload a few employees into the system for testing/demo purposes.
+     */
+    private static void preloadEmployees() {
+        Employee emp1 = new FullTimeEmployee("Yuraj", "Shrestha", "", "9876543210", "Kathmandu", "IT", "yuraj@example.com", "password123");
+        Employee emp2 = new FullTimeEmployee("Ekraj", "Shrestha", "", "9876543211", "Pokhara", "HR", "ekraj@example.com", "password123");
+        Employee emp3 = new FullTimeEmployee("Jenisha", "Karki", "", "9876543212", "Lalitpur", "Sales", "jenisha@example.com", "password123");
+
+        emp1.calculateSalary();
+        emp2.calculateSalary();
+        emp3.calculateSalary();
+
+        employees.put(emp1.getEmployeeId(), emp1);
+        credentials.put(emp1.getEmployeeId(), emp1.getPassword());
+        employees.put(emp2.getEmployeeId(), emp2);
+        credentials.put(emp2.getEmployeeId(), emp2.getPassword());
+        employees.put(emp3.getEmployeeId(), emp3);
+        credentials.put(emp3.getEmployeeId(), emp3.getPassword());
+    }
+}
